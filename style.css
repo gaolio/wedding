@@ -1,0 +1,174 @@
+/* 移动端优化 */
+@media (max-width: 414px) {
+  .couple-cards {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .section {
+    padding: 40px 20px;
+  }
+
+  .cover-title {
+    font-size: 24px;
+  }
+
+  .couple-names {
+    font-size: 18px;
+  }
+
+  .wedding-date {
+    font-size: 16px;
+  }
+
+  .info-cards {
+    gap: 15px;
+  }
+
+  .timeline-content {
+    margin-left: 15px;
+    padding: 20px;
+  }
+
+  .timeline-item:nth-child(even) .timeline-content {
+    margin-right: 15px;
+  }
+}
+
+/* 微信浏览器优化 */
+@media screen and (-webkit-min-device-pixel-ratio: 2) {
+  .cover-section {
+    background-attachment: scroll;
+  }
+}
+
+/* 动画增强 */
+.fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.fade-in-left {
+  animation: fadeInLeft 0.8s ease-out forwards;
+}
+
+.fade-in-right {
+  animation: fadeInRight 0.8s ease-out forwards;
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* 加载动画 */
+.loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+
+.loading.hide {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.loading-spinner {
+  width: 50px;
+  height: 50px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-top: 3px solid white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* 心形装饰 */
+.heart {
+  position: relative;
+  display: inline-block;
+  font-size: 20px;
+  color: #ff9a9e;
+  animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+  0% {
+    transform: scale(1);
+  }
+  14% {
+    transform: scale(1.3);
+  }
+  28% {
+    transform: scale(1);
+  }
+  42% {
+    transform: scale(1.3);
+  }
+  70% {
+    transform: scale(1);
+  }
+}
+
+/* 雪花效果 */
+.snowflake {
+  position: fixed;
+  top: -10px;
+  z-index: 1000;
+  user-select: none;
+  cursor: default;
+  animation-name: snowflakes-fall, snowflakes-shake;
+  animation-duration: 10s, 3s;
+  animation-timing-function: linear, ease-in-out;
+  animation-iteration-count: infinite, infinite;
+  animation-play-state: running, running;
+}
+
+@keyframes snowflakes-fall {
+  to {
+    transform: translateY(100vh);
+  }
+}
+
+@keyframes snowflakes-shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(80px);
+  }
+}
